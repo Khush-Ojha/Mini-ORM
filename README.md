@@ -1,85 +1,46 @@
-# Type-Safe Mini ORM (Headless CMS Core)
+# Type-Safe Mini ORM (Advanced TypeScript)
 
-A lightweight, strictly typed Object-Relational Mapper (ORM) built from scratch using **Advanced TypeScript**.
+A lightweight, strictly typed Object-Relational Mapper (ORM) that leverages **TypeScript Mapped Types** and **Conditional Types** to infer static interfaces directly from runtime schema configurations.
 
-This project demonstrates how to bridge the gap between **Static Type Analysis** and **Runtime Data Validation**. It allows to define a schema configuration once and automatically generates strictly typed interfaces, runtime validators, and persistence logic without code generation steps.
+This project demonstrates how to bridge the gap between static analysis and runtime validation without code generation tools.
 
 ## 🚀 Key Features
 
-- **Type Inference Engine:** Uses Mapped Types and Conditional Types to convert runtime JSON configuration into static TypeScript interfaces.
-- **Zero-Overhead Validation:** Implements a runtime bridge that validates incoming data against the schema, ensuring that `number` types in TS are actually numbers in JS.
-- **Generic Architecture:** The core class `MiniORM<T>` is entirely agnostic of the data it holds, utilizing Generics to adapt to any schema provided at instantiation.
-- **Persistence Layer:** Auto-saves state to the local file system (JSON) with automatic serialization/deserialization.
-- **Test-Driven:** Fully covered by Jest unit tests ensuring type integrity and validation logic.
+- **Zero-Boilerplate Type Inference:** The core `MiniORM<T>` class automatically generates TypeScript interfaces based on the schema object provided at runtime.
+- **Runtime Validation Bridge:** Ensures that data passed to the DB matches the schema types (e.g., checking that a `number` field actually receives a number at runtime).
+- **JSON Persistence:** Automatically serializes and saves state to a local `database.json` file, mimicking a real persistent database.
+- **Generic Architecture:** Built using advanced Generics to be entirely agnostic of the data structure until instantiation.
+- **Unit Tested:** Comprehensive test suite using Jest to verify type integrity and validation logic.
 
 ## 🛠️ Tech Stack
 
 - **Language:** TypeScript (Strict Mode)
 - **Runtime:** Node.js
 - **Testing:** Jest, ts-jest
-- **Architecture:** Repository Pattern, In-Memory Caching with Disk Persistence
+- **Concepts Used:** Mapped Types, Conditional Types, Type Guards, File I/O.
 
 ## 📂 Project Structure
 
 ```bash
 src/
-├── types.ts       # The "Meta-Programming" layer (Mapped Types)
-├── validation.ts  # Runtime type guards and validation logic
-├── MiniORM.ts     # Core generic class (CRUD operations)
-└── index.ts       # Usage demonstration
+├── types.ts       # Logic for mapping strings ('string') to Types (string)
+├── validation.ts  # Runtime validation logic
+├── MiniORM.ts     # Core CRUD class with Generics
+└── index.ts       # Usage example
 tests/
-└── MiniORM.test.ts # Unit tests for logic and types
+└── MiniORM.test.ts # Jest unit tests
+
 ```
 
-💡 How It Works (The "Magic")
-The core of this project relies on TypeScript's ability to infer types from const objects.
+💡 Usage
 
-1. Schema Definition
-   The user defines a schema using a plain JavaScript object. Note the usage of as const to preserve literal types.
+1. Define a Schema
+   Important: You must use as const so TypeScript treats the values as literals rather than generic strings.
 
-''const userSchema = {
+import { MiniORM } from './MiniORM';
+
+const userSchema = {
 username: 'string',
 age: 'number',
 isActive: 'boolean'
-} as const;'
-
-2. Type Inference
-   The MiniORM class automatically generates the following interface in the background, offering full IntelliSense support:
-
-// Auto-generated type (User never writes this manually)
-type User = {
-id: string;
-createdAt: Date;
-username: string; // Inferred from 'string'
-age: number; // Inferred from 'number'
-isActive: boolean;// Inferred from 'boolean'
-}
-🏁 Getting Started
-Prerequisites
-Node.js (v14+)
-
-npm
-
-Installation
-Clone the repository:
-
-Bash
-
-git clone [https://github.com/Khush-Ojha/Mini-ORM.git](https://github.com/Khush-Ojha/Mini-ORM.git)
-Install dependencies:
-
-Bash
-
-npm install
-Running the Project
-Run the Demo:
-
-Bash
-
-'npx ts-node src/index.ts'
-
-Run Tests:
-
-Bash
-
-'npm test'
+} as const;
