@@ -32,15 +32,31 @@ tests/
 
 ```
 
-💡 Usage
+## 🏁 Getting Started (Clone & Run)
 
-1. Define a Schema
-   Important: You must use as const so TypeScript treats the values as literals rather than generic strings.
+Follow these steps to run the project on your machine.
 
-import { MiniORM } from './MiniORM';
+### 1. Clone the Repository
 
-const userSchema = {
-username: 'string',
-age: 'number',
-isActive: 'boolean'
-} as const;
+```bash
+git clone [https://github.com/Khush-Ojha/Mini-ORM.git](https://github.com/Khush-Ojha/Mini-ORM.git)
+cd Mini-ORM
+```
+
+### 1. Install Dependencies
+
+```bash
+npm install
+```
+
+### 2. Run the Demo
+
+```bash
+npx ts-node src/index.ts
+```
+
+### 2. Run Unit Tests
+
+```bash
+npm run test
+```
