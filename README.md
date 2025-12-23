@@ -1,4 +1,4 @@
-# Type-Safe Mini ORM (Advanced TypeScript)
+# Type-Safe Mini ORM
 
 A lightweight, strictly typed Object-Relational Mapper (ORM) that leverages **TypeScript Mapped Types** and **Conditional Types** to infer static interfaces directly from runtime schema configurations.
 
