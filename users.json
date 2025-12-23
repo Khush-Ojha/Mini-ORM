@@ -1,0 +1,24 @@
+[
+  [
+    "d0tyihpjm",
+    {
+      "username": "persistent_user",
+      "age": 99,
+      "isActive": true,
+      "joinedAt": "2025-12-22T17:16:46.183Z",
+      "id": "test-id",
+      "createdAt": "2025-12-22T17:16:46.183Z"
+    }
+  ],
+  [
+    "test-id",
+    {
+      "username": "persistent_user",
+      "age": 99,
+      "isActive": true,
+      "joinedAt": "2025-12-22T17:16:46.183Z",
+      "id": "test-id",
+      "createdAt": "2025-12-22T17:16:46.183Z"
+    }
+  ]
+]
