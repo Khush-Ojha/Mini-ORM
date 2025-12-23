@@ -2,7 +2,7 @@
 
 A lightweight, strictly typed Object-Relational Mapper (ORM) built from scratch using **Advanced TypeScript**.
 
-This project demonstrates how to bridge the gap between **Static Type Analysis** and **Runtime Data Validation**. It allows developers to define a schema configuration once and automatically generates strictly typed interfaces, runtime validators, and persistence logic without code generation steps.
+This project demonstrates how to bridge the gap between **Static Type Analysis** and **Runtime Data Validation**. It allows to define a schema configuration once and automatically generates strictly typed interfaces, runtime validators, and persistence logic without code generation steps.
 
 ## 🚀 Key Features
 
@@ -37,16 +37,14 @@ The core of this project relies on TypeScript's ability to infer types from cons
 1. Schema Definition
    The user defines a schema using a plain JavaScript object. Note the usage of as const to preserve literal types.
 
-TypeScript
-
-const userSchema = {
+''const userSchema = {
 username: 'string',
 age: 'number',
 isActive: 'boolean'
-} as const; 2. Type Inference
-The MiniORM class automatically generates the following interface in the background, offering full IntelliSense support:
+} as const;'
 
-TypeScript
+2. Type Inference
+   The MiniORM class automatically generates the following interface in the background, offering full IntelliSense support:
 
 // Auto-generated type (User never writes this manually)
 type User = {
@@ -67,7 +65,7 @@ Clone the repository:
 
 Bash
 
-git clone [https://github.com/YOUR_USERNAME/mini-orm-ts.git](https://github.com/YOUR_USERNAME/mini-orm-ts.git)
+git clone [https://github.com/Khush-Ojha/Mini-ORM.git](https://github.com/Khush-Ojha/Mini-ORM.git)
 Install dependencies:
 
 Bash
@@ -78,9 +76,10 @@ Run the Demo:
 
 Bash
 
-npx ts-node src/index.ts
+'npx ts-node src/index.ts'
+
 Run Tests:
 
 Bash
 
-npm test
+'npm test'
