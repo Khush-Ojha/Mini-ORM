@@ -55,8 +55,35 @@ npm install
 npx ts-node src/index.ts
 ```
 
-### 2. Run Unit Tests
+### 3. Run Unit Tests
 
 ```bash
 npm run test
+```
+
+### 💡 How It Works
+
+```TypeScript
+import { MiniORM } from './MiniORM';
+
+const userSchema = {
+  username: 'string',
+  age: 'number',
+  isActive: 'boolean'
+} as const; // 'as const' is required for type inference
+```
+
+## Use the Database
+
+```TypeScript
+const db = new MiniORM(userSchema, 'users.json');
+
+// Create a new user (Type-safe!)
+const user = db.create({
+  username: "johndoe",
+  age: 25,
+  isActive: true
+});
+
+console.log("Created User ID:", user.id);
 ```
