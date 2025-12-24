@@ -23,9 +23,7 @@ age: 99,
 isActive: true,
 joinedAt: new Date()
 });
-// We manually set ID here just for this test so we can find it next time
-// In real life, you wouldn't hack the ID like this
-// @ts-ignore
+
 newUser.id = 'test-id'; 
 // @ts-ignore
 userDb.store.set('test-id', newUser);
