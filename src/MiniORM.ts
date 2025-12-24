@@ -62,7 +62,7 @@ if (!existing) return null;
 const updatedDoc = { ...existing, ...updates };
 validateEntry(this.schema, updatedDoc);
 this.store.set(id, updatedDoc);
-this.save(); // <-- AUTO SAVE
+this.save(); 
 return updatedDoc;
 }
 
